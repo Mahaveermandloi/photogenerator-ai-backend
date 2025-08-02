@@ -1,10 +1,17 @@
-FROM eclipse-temurin:17-jdk AS build
+# Use Maven image for build
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY . .
-RUN ./mvnw clean package
 
-FROM eclipse-temurin:17-jdk
+# Copy everything and make mvnw executable
+COPY . .
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
+
+# Use OpenJDK image to run
+FROM eclipse-temurin:21-jdk
 WORKDIR /app
+
+# Copy JAR from previous stage
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 3000
+
+# Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
