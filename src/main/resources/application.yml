@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: StockPhotoGenerator
+
+
+  ai:
+    openai:
+#      api-key: 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
+      api-key: ${SPRING_AI_OPENAI_API_KEY}
+
+server:
+  port: 3000
