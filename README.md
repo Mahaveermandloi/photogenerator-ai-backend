@@ -1,5 +1,5 @@
 # photogenerator-ai-backend
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/Mahaveermandloi/photogenerator-ai-backend)
+
 
 This repository contains the backend service for an AI-powered photo and content generator. It is a Spring Boot application that leverages the Spring AI project to integrate with OpenAI's models for generating images, text-based chat responses, and structured content like recipes.
 
